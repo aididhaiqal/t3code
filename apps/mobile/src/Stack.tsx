@@ -117,6 +117,7 @@ import { ScheduledTaskEditorProvider } from "./features/settings/scheduled-task-
 import { SettingsKeyboardRouteScreen } from "./features/settings/SettingsKeyboardRouteScreen";
 import { SettingsLegalRouteScreen } from "./features/settings/SettingsLegalRouteScreen";
 import { SettingsMicrophoneRouteScreen } from "./features/settings/SettingsMicrophoneRouteScreen";
+import { SettingsBackgroundRouteScreen } from "./features/settings/SettingsBackgroundRouteScreen";
 import {
   SettingsOpenSourceLicenseRouteScreen,
   SettingsOpenSourceLicensesRouteScreen,
@@ -322,6 +323,13 @@ const SettingsContentStack = createV5SheetStackNavigator({
       linking: "microphone",
       options: {
         title: "Microphone",
+      },
+    }),
+    SettingsBackground: createNativeStackScreen({
+      screen: SettingsBackgroundRouteScreen,
+      linking: "stay-connected",
+      options: {
+        title: "Stay connected",
       },
     }),
     SettingsFollowUp: createNativeStackScreen({

@@ -10,6 +10,7 @@ import { hasCloudPublicConfig } from "../cloud/publicConfig";
 import { useAdaptiveWorkspaceLayout } from "../layout/AdaptiveWorkspaceLayout";
 import { NativeStackScreenOptions } from "../../native/StackHeader";
 import { useSavedRemoteConnections } from "../../state/use-remote-environment-registry";
+import { supportsBackgroundKeepAlive } from "../background-keep-alive/backgroundKeepAlive";
 import { SettingsRow } from "./components/SettingsRow";
 import { SettingsSection } from "./components/SettingsSection";
 import { SettingsScreen } from "./components/SettingsScreen";
@@ -215,6 +216,9 @@ function SettingsIndexSections() {
       </SettingsSection>
 
       <SettingsSection title="App">
+        {supportsBackgroundKeepAlive() ? (
+          <SettingsRow icon="wifi" label="Stay connected" target="SettingsBackground" />
+        ) : null}
         <SettingsRow icon="chart.bar.xaxis" label="Usage" target="SettingsUsage" />
         <SettingsRow icon="info.circle" label="About T3 Code" target="SettingsAbout" />
       </SettingsSection>

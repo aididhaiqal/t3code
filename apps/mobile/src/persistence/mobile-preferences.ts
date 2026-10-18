@@ -54,6 +54,8 @@ export interface Preferences {
   readonly pullRequestHideTestFiles?: boolean;
   readonly pullRequestMergeMethod?: PullRequestMergeMethod;
   readonly liveActivitiesEnabled?: boolean;
+  /** Keep environment connections open while the app is in the background. iOS only. */
+  readonly backgroundKeepAliveEnabled?: boolean;
   readonly themeId?: MobileThemeId;
   readonly lightThemeId?: MobileThemeId;
   readonly darkThemeId?: MobileThemeId;
@@ -128,6 +130,7 @@ function sanitizePreferences(parsed: Preferences): Preferences {
     pullRequestHideTestFiles?: boolean;
     pullRequestMergeMethod?: PullRequestMergeMethod;
     liveActivitiesEnabled?: boolean;
+    backgroundKeepAliveEnabled?: boolean;
     themeId?: MobileThemeId;
     lightThemeId?: MobileThemeId;
     darkThemeId?: MobileThemeId;
@@ -169,6 +172,9 @@ function sanitizePreferences(parsed: Preferences): Preferences {
 
   if (typeof parsed.liveActivitiesEnabled === "boolean") {
     preferences.liveActivitiesEnabled = parsed.liveActivitiesEnabled;
+  }
+  if (typeof parsed.backgroundKeepAliveEnabled === "boolean") {
+    preferences.backgroundKeepAliveEnabled = parsed.backgroundKeepAliveEnabled;
   }
   if (
     typeof parsed.themeId === "string" &&

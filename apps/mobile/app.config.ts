@@ -270,9 +270,12 @@ const config: ExpoConfig = {
       NSLocalNetworkUsageDescription:
         "Allow T3 Code to connect to T3 Code servers on your local network or tailnet.",
       NSPhotoLibraryAddUsageDescription: "Allow T3 Code to save images to your photo library.",
-      // "Audio, AirPlay, and Picture in Picture": the browser screen's system
-      // picture in picture needs it to start and to stay up outside the app.
-      UIBackgroundModes: ["audio"],
+      NSLocationWhenInUseUsageDescription:
+        "When Stay connected is on, T3 Code uses approximate location only to keep running in the background so your environment connections stay open. Your location is never read or sent anywhere.",
+      // "audio": the browser screen's system picture in picture needs it to
+      // start and to stay up outside the app. "location": the opt-in Stay
+      // connected setting keeps the app running with a coarse location session.
+      UIBackgroundModes: ["audio", "location"],
       ITSAppUsesNonExemptEncryption: false,
       // The App Store screenshot harness rotates the iPad interface from
       // inside the app (CI denies osascript the Accessibility access that
